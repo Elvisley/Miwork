@@ -2,12 +2,32 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
+
+        setContentView(R.layout.word_list);
+
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("Where are you going?","minto wuksus"));
+
+
+        WordAdapter itemsAdapter = new WordAdapter(this, words);
+
+        ListView listView = (ListView) findViewById(R.id.activity_root_view);
+
+        listView.setAdapter(itemsAdapter);
     }
 }
